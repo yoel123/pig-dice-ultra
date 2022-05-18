@@ -1,0 +1,163 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://btn.tscn" type="PackedScene" id=1]
+[ext_resource path="res://dice.tscn" type="PackedScene" id=2]
+[ext_resource path="res://player.tscn" type="PackedScene" id=3]
+[ext_resource path="res://game.gd" type="Script" id=4]
+
+[node name="game" type="Node2D"]
+script = ExtResource( 4 )
+
+[node name="current_player_txt" type="Label" parent="."]
+margin_left = 30.239
+margin_top = 26.3025
+margin_right = 147.239
+margin_bottom = 40.3025
+text = "current player:"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="player_score" type="Label" parent="."]
+margin_left = 30.239
+margin_top = 59.3025
+margin_right = 147.239
+margin_bottom = 73.3025
+text = "score:"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="current_score_txt" type="Label" parent="."]
+margin_left = 20.524
+margin_top = 446.96
+margin_right = 137.524
+margin_bottom = 460.96
+text = "turn score:"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="roll1" parent="." instance=ExtResource( 1 )]
+position = Vector2( 27.9346, 224.97 )
+ytxt = "roll 1 dice"
+
+[node name="roll2" parent="." instance=ExtResource( 1 )]
+position = Vector2( 28.9941, 280.062 )
+ytxt = "roll 2 dice"
+
+[node name="roll3" parent="." instance=ExtResource( 1 )]
+position = Vector2( 28.9941, 333.086 )
+ytxt = "roll 3 dice"
+
+[node name="pass_turn" parent="." instance=ExtResource( 1 )]
+position = Vector2( 23.3129, 162.598 )
+ytxt = "pass turn"
+
+[node name="dice" parent="." instance=ExtResource( 2 )]
+position = Vector2( 171.627, 470.899 )
+
+[node name="dice2" parent="." instance=ExtResource( 2 )]
+position = Vector2( 93.985, 470.899 )
+
+[node name="dice3" parent="." instance=ExtResource( 2 )]
+position = Vector2( 16.3428, 470.899 )
+
+[node name="player" parent="." instance=ExtResource( 3 )]
+position = Vector2( 80.0227, 113.517 )
+
+[node name="pre_game_screen" type="Node2D" parent="."]
+visible = false
+z_index = 999
+
+[node name="ColorRect" type="ColorRect" parent="pre_game_screen"]
+margin_right = 339.0
+margin_bottom = 635.0
+color = Color( 0.247059, 0.243137, 0.243137, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="player_num_input" type="TextEdit" parent="pre_game_screen"]
+margin_left = 167.824
+margin_top = 185.798
+margin_right = 203.824
+margin_bottom = 213.798
+text = "2"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ai_players_in" type="TextEdit" parent="pre_game_screen"]
+margin_left = 170.344
+margin_top = 239.975
+margin_right = 206.344
+margin_bottom = 267.975
+text = "0"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="start_game" parent="pre_game_screen" instance=ExtResource( 1 )]
+position = Vector2( 82.0244, 393.151 )
+ytxt = "start game"
+
+[node name="Label" type="Label" parent="pre_game_screen"]
+margin_left = 41.5774
+margin_top = 192.768
+margin_right = 157.577
+margin_bottom = 206.768
+text = "number of players"
+
+[node name="Label2" type="Label" parent="pre_game_screen"]
+margin_left = 44.0972
+margin_top = 246.945
+margin_right = 160.097
+margin_bottom = 260.945
+text = "computer players"
+
+[node name="pass_turn_screen" type="Node2D" parent="."]
+visible = false
+z_index = 999
+
+[node name="ColorRect" type="ColorRect" parent="pass_turn_screen"]
+margin_right = 408.0
+margin_bottom = 661.0
+color = Color( 0.180392, 0.180392, 0.180392, 1 )
+
+[node name="start_turn" parent="pass_turn_screen" instance=ExtResource( 1 )]
+position = Vector2( 91.5381, 300.393 )
+ytxt = "start turn"
+
+[node name="next_player_label" type="Label" parent="pass_turn_screen"]
+margin_left = 89.0615
+margin_top = 178.44
+margin_right = 212.061
+margin_bottom = 205.44
+text = "current player"
+
+[node name="win_screen" type="Node2D" parent="."]
+visible = false
+z_index = 999
+
+[node name="ColorRect2" type="ColorRect" parent="win_screen"]
+margin_right = 353.0
+margin_bottom = 635.0
+color = Color( 0.247059, 0.243137, 0.243137, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="winner_txt" type="Label" parent="win_screen"]
+margin_left = 91.0
+margin_top = 167.0
+margin_right = 246.0
+margin_bottom = 194.0
+text = "playr who won"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="back_to_start" parent="win_screen" instance=ExtResource( 1 )]
+position = Vector2( 102.797, 397.292 )
+ytxt = "go back"
